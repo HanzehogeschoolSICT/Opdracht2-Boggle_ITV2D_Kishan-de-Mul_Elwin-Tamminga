@@ -91,9 +91,7 @@ public class Window extends Application {
 					currentWord = findWord(line);
 					if (currentWord != null) {
 						Platform.runLater( () -> updateDisplay() );
-						try {
-							Thread.sleep(2000);
-						} catch (Exception e) {}
+						Thread.sleep(2000);
 					}
 				}
 
