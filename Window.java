@@ -26,8 +26,8 @@ import java.io.*;
 
 
 public class Window extends Application {
-	public static final int X = 5;
-	public static final int Y = 5;
+	public static final int X = 4;
+	public static final int Y = 4;
 	private char[][] grid = new char[X][Y];
 	private GraphicsContext gc;
 	private Coords[] currentWord;
@@ -62,14 +62,14 @@ public class Window extends Application {
 		StackPane root = new StackPane();
 		root.getChildren().add(pane);
 
-		final Canvas canvas = new Canvas(400,400);
+		final Canvas canvas = new Canvas(331,331);
 		gc = canvas.getGraphicsContext2D();
 		gc.setStroke(Color.RED);
 		gc.setLineWidth(3.0);
 
 		root.getChildren().add(canvas);
 
-		Scene scene = new Scene(root, 400, 400);
+		Scene scene = new Scene(root, 331, 331);
 
 		primaryStage.setTitle("Boggle");
 		primaryStage.setScene(scene);
