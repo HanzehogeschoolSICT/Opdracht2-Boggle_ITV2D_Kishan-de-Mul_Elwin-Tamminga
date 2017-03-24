@@ -103,8 +103,9 @@ public class Window extends Application {
 			}
 		};
 
-		// TODO: Close thread when the GUI already stopped
-		new Thread(runTask).start();
+		Thread th = new Thread(runTask);
+		th.setDaemon(true);
+		th.start();
 	}
 
 	public void updateDisplay() {
