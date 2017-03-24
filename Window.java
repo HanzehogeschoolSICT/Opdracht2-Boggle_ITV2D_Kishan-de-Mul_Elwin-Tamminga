@@ -186,17 +186,23 @@ public class Window extends Application {
 
 		List<Coords> options = new ArrayList<Coords>();
 
-		for (int x = last.x-1; x < last.x+1; x++) {
-			if (x < 0 || x > X) continue;
+		for (int x = last.x-1; x <= last.x+1; x++) {
+			if (x < 0 || x >= X) continue;
 
-			for (int y = last.y-1; y < last.y+1; y++) {
-				if (y < 0 || y > Y) continue;
+			for (int y = last.y-1; y <= last.y+1; y++) {
+				if (y < 0 || y >= Y) continue;
 				if (x == last.x && y == last.y) continue;
 
 				if (grid[x][y] == letter) {
 					Coords next = new Coords(x, y);
 
-					// TODO: check if the coordinates are already in the chain
+					boolean alreadyUsed = false;
+
+					for (Coords c : chain) {
+						if (c.x == next.x && c.y == next.y) alreadyUsed = true;
+					}
+
+					if (alreadyUsed) continue;
 
 					options.add(next);
 				}
